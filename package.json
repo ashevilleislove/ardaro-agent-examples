@@ -1,0 +1,14 @@
+{
+  "name": "ardaro-agent-examples",
+  "version": "1.0.0",
+  "license": "MIT",
+  "private": true,
+  "description": "A no-wallet, no-spend MCP quickstart for Ardaro Receipt Intelligence.",
+  "type": "module",
+  "engines": { "node": ">=24.14.0" },
+  "scripts": {
+    "start": "node examples/receipt-mcp.mjs",
+    "test": "node --test"
+  },
+  "dependencies": { "@modelcontextprotocol/sdk": "1.30.0" }
+}
