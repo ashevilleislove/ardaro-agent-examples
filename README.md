@@ -1,6 +1,13 @@
-# Receipt checks for your AI agent
+# Receipt checks and invoice matching for your AI agent
 
-Connect to **Ardaro Receipt Intelligence**, inspect a synthetic result, and see the price of a real analysis call. The runnable example stops before payment. No account, API key, wallet, or customer receipt is needed.
+Connect to **Ardaro Receipt Intelligence or Invoice Matching**, inspect a fixed synthetic result, and see the price of a real analysis call. Both runnable examples stop before payment. No account, API key, wallet, model API call, or customer document is needed.
+
+| Workflow | Free proof | Paid processing |
+| --- | --- | --- |
+| Receipt text/extraction → arithmetic and duplicate review | `npm start` | 0.25 USDC |
+| Structured invoice + PO → comparison → human review | `npm run demo:invoice` | 0.50 USDC |
+
+Start with the [invoice walkthrough](docs/invoice-workflow.md) if you build purchasing or accounts-payable workflows. The free tier provides fixed examples and schemas; it does not process your own documents for free. Connection does not automatically upgrade to paid calls.
 
 Useful for developers building expense-review agents, bookkeeping intake, and construction back-office workflows. Ardaro provides normalized receipt fields and review signals for arithmetic, confidence, line items, and possible duplicates.
 
@@ -18,16 +25,18 @@ cd ardaro-agent-examples
 npm ci --ignore-scripts
 npm test
 npm start
+# Or test invoice matching:
+npm run demo:invoice
 ```
 
-`npm test` is offline. `npm start` makes a few requests to the public Ardaro endpoint. It:
+`npm test` is offline. `npm start` makes a few requests to the public Ardaro endpoint. The receipt demo:
 
 1. Initializes a Streamable HTTP MCP connection and lists tools.
 2. Calls `get_receipt_example` with empty arguments and prints its synthetic input and example output.
 3. Submits that same synthetic input to `analyze_receipt` **without payment**, then verifies the x402 payment-required response.
 4. Stops. It does not sign, fund a wallet, authorize payment, or retry with a payment.
 
-The final JSON includes `fundsSpent: 0`, `paidSettlement: "not attempted"`, and three passed checks. The example transport rejects authentication/payment headers, payment metadata, non-Ardaro destinations, and redirects. It accepts no CLI input, reads no environment credentials, and contains no wallet dependency. Do not turn this demonstration guard into a general-purpose payment authorization policy.
+Both demos return `fundsSpent: 0` and `paidSettlement: "not attempted"`. The invoice demo additionally checks service readiness, validates the fixed result identity, and presents the comparison for human review. The example transport rejects authentication/payment headers, payment metadata, non-Ardaro destinations, and redirects. It accepts no CLI input, reads no environment credentials, and contains no wallet dependency. Do not turn this demonstration guard into a general-purpose payment authorization policy.
 
 No Node installation? Inspect the [public synthetic example](https://agents.getardaro.com/agent-services/receipt-intelligence/example) in a browser. This is a fixed fixture, **not free processing of your own receipt**.
 
@@ -55,8 +64,8 @@ This is a shortened excerpt of the **fixed example's expected response**, not a 
 | --- | --- |
 | Endpoint | `https://agents.getardaro.com/mcp` |
 | Transport | Streamable HTTP, stateless JSON |
-| Free tool | `get_receipt_example`, arguments `{}` |
-| Paid tool | `analyze_receipt` |
+| Free tools | `get_receipt_example`, `get_receipt_service_status`, `get_invoice_matching_example`, `get_invoice_matching_service_status`; arguments `{}` |
+| Paid tools | `analyze_receipt` (0.25 USDC), `match_invoice` (0.50 USDC) |
 | Authentication for free discovery | None |
 | Registry name | `io.github.ashevilleislove/ardaro-receipt-intelligence` |
 
@@ -97,6 +106,10 @@ This command authorizes an automatic x402 payment up to 0.25 USDC for the reques
 
 ## Resources and human help
 
+- [Invoice workflow and buyer setup](docs/invoice-workflow.md)
+- [Invoice public quickstart](https://agents.getardaro.com/invoice-matching)
+- [Invoice TypeScript buyer ZIP](https://agents.getardaro.com/invoice-matching/buyer.zip)
+- [Receipt TypeScript buyer ZIP](https://agents.getardaro.com/receipt-intelligence/buyer.zip)
 - [Ardaro product and integration guide](https://agents.getardaro.com/receipt-intelligence#mcp)
 - [Public agent integration instructions](https://agents.getardaro.com/receipt-intelligence/SKILL.md)
 - [OpenAPI](https://agents.getardaro.com/openapi.json)
