@@ -1,5 +1,18 @@
 # Verification notes
 
+## Invoice quickstart update — September 12, 2026 (America/New_York)
+
+- Node.js 24.14.0 and npm 11.9.0; MCP SDK remains pinned to 1.30.0. No new dependency was added.
+- `npm test`: **33 passed**, including invoice review policy, result-identity tampering, incorrect quotes, closed readiness, and payment-metadata rejection before network access.
+- `npm audit --omit=dev --audit-level=low`: zero reported vulnerabilities at this check.
+- `npm run demo:invoice`: passed against the public MCP endpoint. Five checks passed: discovery, readiness, fixed synthetic example, example result identity and unsigned x402 challenge for 500000 atomic native USDC units on Base.
+- `npm start`: existing receipt proof still passes against production.
+- Both live runs returned `fundsSpent: 0` and `paidSettlement: "not attempted"`. No wallet, model call, customer input or signed payment was used.
+- `test/fixtures/invoice-example.json` and `invoice-status.json` are public service snapshots used only by offline tests. The status snapshot is not a live availability or settlement claim.
+- The invoice handoff retains human review even for `no_discrepancies`. The paid buyer is linked as a separate package; it is not executed by these examples.
+
+The original receipt-only verification follows as historical evidence.
+
 Checked on **September 5, 2026**, using Node.js **24.14.0**, npm **11.9.0**, and the official MCP SDK **1.30.0**.
 
 ## Reproducible checks

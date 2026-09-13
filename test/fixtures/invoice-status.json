@@ -1,0 +1,57 @@
+{
+  "status_version": "ardaro.invoice-matching.service-status.v1",
+  "service_id": "ardaro.invoice_matching",
+  "ready": true,
+  "reason": "ready",
+  "price": {
+    "model": "fixed_per_accepted_request",
+    "amount": "0.50",
+    "amount_atomic": "500000",
+    "currency": "USDC",
+    "network": "eip155:8453",
+    "display": "$0.50",
+    "failed_input_validation_charged": false,
+    "same_payment_identifier_replay_requires_new_payment": false,
+    "successful_response_loss_retry_policy": "Retry only the identical signed payment, payment identifier and request. Never create a new signature for an unknown outcome."
+  },
+  "limits": {
+    "max_request_bytes": 262144,
+    "max_invoice_line_items": 100,
+    "max_purchase_order_line_items": 100,
+    "max_response_bytes": 1048576,
+    "max_mcp_response_bytes": 2097152,
+    "supported_currencies": [
+      "AUD",
+      "CAD",
+      "EUR",
+      "GBP",
+      "JPY",
+      "MXN",
+      "USD"
+    ]
+  },
+  "retention": {
+    "raw_documents_persisted": false,
+    "in_process_result_cache_seconds": 900,
+    "payment_metadata_retention_seconds": 220752000,
+    "sales_accounting": "Content-free pseudonymous invoice sales are accounted for separately from receipt sales."
+  },
+  "policy": {
+    "advisory_only": true,
+    "human_review_required": true,
+    "financial_mutation_supported": false,
+    "ardaro_saas_tenant_access": false,
+    "ocr_supported": false,
+    "delivery_verification_supported": false,
+    "prior_invoice_reconciliation_supported": false,
+    "tax_validation_supported": false,
+    "document_authentication_supported": false
+  },
+  "settlement_proven": false,
+  "endpoints": {
+    "analyze": "https://agents.getardaro.com/v1/invoice-matching/analyze",
+    "mcp": "https://agents.getardaro.com/mcp",
+    "example": "https://agents.getardaro.com/agent-services/invoice-matching/example",
+    "status": "https://agents.getardaro.com/agent-services/invoice-matching/status"
+  }
+}

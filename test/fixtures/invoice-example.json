@@ -1,0 +1,148 @@
+{
+  "example_version": "ardaro.invoice-matching.example.v1",
+  "synthetic_only": true,
+  "request": {
+    "contract_version": "ardaro.agent-invoice-matching.request.v1",
+    "invoice": {
+      "reference": "SYN-INV-001",
+      "currency": "USD",
+      "supplier_id": "SYN-SUPPLIER-001",
+      "purchase_order_reference": "SYN-PO-001",
+      "subtotal": "20.00",
+      "tax": "1.40",
+      "total": "21.40",
+      "line_items": [
+        {
+          "line_id": "INV-1",
+          "po_line_id": "PO-1",
+          "product_code": "SYN-BOARD",
+          "description": "Synthetic board",
+          "unit": "each",
+          "quantity": "2",
+          "unit_price": "10.00",
+          "amount": "20.00"
+        }
+      ]
+    },
+    "purchase_order": {
+      "reference": "SYN-PO-001",
+      "currency": "USD",
+      "supplier_id": "SYN-SUPPLIER-001",
+      "line_items": [
+        {
+          "line_id": "PO-1",
+          "product_code": "SYN-BOARD",
+          "description": "Synthetic board",
+          "unit": "each",
+          "quantity": "5",
+          "unit_price": "10.00",
+          "amount": "50.00"
+        }
+      ]
+    }
+  },
+  "response": {
+    "contract_version": "ardaro.agent-invoice-matching.response.v1",
+    "status": "review_required",
+    "result": {
+      "summary": {
+        "outcome": "no_discrepancies",
+        "invoice_line_count": 1,
+        "purchase_order_line_count": 1,
+        "matched_invoice_line_count": 1,
+        "unmatched_invoice_line_count": 0,
+        "discrepancy_count": 0,
+        "unknown_check_count": 0,
+        "human_review_required": true,
+        "delivery_verified": false,
+        "payment_approved": false
+      },
+      "document_checks": {
+        "currency_matches": true,
+        "supplier_matches": true,
+        "purchase_order_reference_matches": true
+      },
+      "comparison_rows": [
+        {
+          "invoice_line_id": "INV-1",
+          "invoice_source": "/invoice/line_items/0",
+          "purchase_order_line_id": "PO-1",
+          "purchase_order_source": "/purchase_order/line_items/0",
+          "match_method": "explicit_po_line_id",
+          "allocation_status": "allocated",
+          "invoice_quantity": "2",
+          "purchase_order_quantity": "5",
+          "invoice_unit": "each",
+          "purchase_order_unit": "each",
+          "invoice_unit_price": "10",
+          "purchase_order_unit_price": "10",
+          "invoice_currency": "USD",
+          "purchase_order_currency": "USD",
+          "unit_price_difference": "0",
+          "invoice_amount": "20.00",
+          "computed_invoice_amount": "20.00",
+          "line_arithmetic_status": "consistent",
+          "discrepancy_codes": [],
+          "outcome": "no_discrepancies"
+        }
+      ],
+      "purchase_order_line_summary": [
+        {
+          "purchase_order_line_id": "PO-1",
+          "purchase_order_source": "/purchase_order/line_items/0",
+          "allocated_invoice_sources": [
+            "/invoice/line_items/0"
+          ],
+          "ordered_quantity": "5",
+          "allocated_quantity": "2",
+          "uninvoiced_quantity": "3",
+          "overbilled_quantity": "0",
+          "unit": "each",
+          "status": "partially_invoiced",
+          "supplied_amount": "50.00",
+          "computed_amount": "50.00",
+          "line_arithmetic_status": "consistent"
+        }
+      ],
+      "discrepancies": [],
+      "arithmetic": {
+        "rounding_mode": "ROUND_HALF_UP",
+        "rounding_scope": "each_line_then_sum",
+        "invoice_currency_scale": 2,
+        "purchase_order_currency_scale": 2,
+        "invoice_line_amount_sum": "20.00",
+        "invoice_supplied_line_amount_sum": "20.00",
+        "invoice_subtotal": "20.00",
+        "invoice_tax": "1.40",
+        "invoice_total": "21.40",
+        "computed_invoice_total": "21.40",
+        "invoice_subtotal_status": "consistent",
+        "invoice_total_status": "consistent"
+      },
+      "policy": {
+        "human_review_required": true,
+        "stateless": true,
+        "raw_documents_retained": false,
+        "financial_posting_supported": false,
+        "financial_posting_performed": false,
+        "payment_approval_supported": false,
+        "delivery_verification_supported": false,
+        "model_calls": 0,
+        "identity_purpose": "deterministic_result_comparison_only",
+        "matching_rule": "explicit_po_line_id_else_unique_case_sensitive_product_code",
+        "quantity_scope": "Only this invoice is counted; prior invoices and deliveries are not checked. Uninvoiced quantity is not evidence of undelivered goods. Uncertain allocation makes affected PO quantities unavailable.",
+        "arithmetic_scope": "Supplied line amounts and totals are checked using per-line rounding. Tax applicability, discounts, shipping, and alternate rounding policies are not inferred.",
+        "supplier_scope": "Supplier identifiers are caller-supplied matching identifiers; supplier identity and document authenticity are not verified.",
+        "decision_scope": "No discrepancies means only that the supported checks found none in supplied data. Human review is always required."
+      }
+    },
+    "identities": {
+      "analysis_result_identity": "res_b79ff4e2dbf7e36d1be1c744bbf4678da8068401cb2675857d8e1b41128289fc"
+    }
+  },
+  "policy": {
+    "human_review_required": true,
+    "financial_posting_supported": false,
+    "payment_required": false
+  }
+}

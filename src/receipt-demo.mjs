@@ -5,7 +5,7 @@ export const PAID_RESOURCE = 'https://agents.getardaro.com/v1/receipt-intelligen
 const allowedHeaders = new Set(['accept', 'content-type', 'mcp-protocol-version', 'mcp-session-id']);
 const allowedMethods = new Set(['initialize', 'notifications/initialized', 'tools/list', 'tools/call']);
 
-function rejectPaymentMetadata(value) {
+export function rejectPaymentMetadata(value) {
   if (value === null || typeof value !== 'object') return;
   for (const [key, item] of Object.entries(value)) {
     assert.ok(!['_meta', 'signature', 'authorization', 'privateKey'].includes(key),
@@ -34,7 +34,11 @@ export function createNoSpendFetch(fetchImpl = globalThis.fetch) {
       assert.ok(allowedMethods.has(message.method), 'Unexpected MCP method.');
       rejectPaymentMetadata(message);
       if (message.method === 'tools/call') {
-        assert.ok(['get_receipt_example', 'analyze_receipt'].includes(message.params?.name), 'Unexpected tool.');
+        assert.ok(['get_receipt_example', 'analyze_receipt', 'get_invoice_matching_service_status',
+          'get_invoice_matching_example', 'match_invoice'].includes(message.params?.name), 'Unexpected tool.');
+        if (message.params.name.startsWith('get_')) {
+          assert.deepEqual(message.params.arguments, {}, 'Free tools accept empty arguments only.');
+        }
       }
     } else {
       assert.equal(init.body, undefined, 'GET must have no body.');
