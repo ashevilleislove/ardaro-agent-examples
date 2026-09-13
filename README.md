@@ -1,5 +1,7 @@
 # Ardaro agent tools: document checks and advisory utilities
 
+For all 18 tool definitions across CrewAI, LangChain and Vercel AI SDK, see the [canonical-schema client adapters](examples/canonical-clients/README.md). They preserve the live input/output contracts and enable only two fixed free examples by default.
+
 Connect to **Ardaro Receipt Intelligence or Invoice Matching**, inspect a fixed synthetic result, and see the price of a real analysis call. Both runnable examples stop before payment. No account, API key, wallet, model API call, or customer document is needed.
 
 For framework integration, use the tested [LangChain / LangGraph](docs/frameworks/langchain.md), [Vercel AI SDK](docs/frameworks/vercel.md), or [CrewAI](docs/frameworks/crewai.md) adapters. Each connects to the live MCP service and verifies the same two fixed document examples. The [four advisory utility tools](docs/agent-utilities.md) share this endpoint and publish their own free examples, status, and schemas.

@@ -1,0 +1,14 @@
+{
+  "name": "ardaro-canonical-mcp-clients",
+  "private": true,
+  "type": "module",
+  "version": "0.1.0",
+  "description": "Explicit canonical-schema MCP client adapters; fixed free examples only by default",
+  "scripts": {"test": "node --test test-canonical.mjs"},
+  "dependencies": {
+    "@ai-sdk/mcp": "2.0.49",
+    "@ai-sdk/provider-utils": "5.0.40",
+    "ajv": "8.17.1",
+    "ajv-formats": "3.0.1"
+  }
+}
