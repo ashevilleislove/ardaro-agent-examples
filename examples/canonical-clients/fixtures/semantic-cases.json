@@ -1,0 +1,980 @@
+{
+  "scope": "Fixed synthetic and synthetic invalid variations; no paid calls",
+  "cases": [
+    {
+      "name": "analyze_receipt",
+      "arguments": {
+        "contract_version": "ardaro.agent-receipt-intelligence.request.v1",
+        "input": {
+          "kind": "structured",
+          "analysis": {
+            "vendor": {
+              "value": "Synthetic Building Supply",
+              "confidence": 99
+            },
+            "purchase_date": {
+              "value": "2026-08-18",
+              "confidence": 99
+            },
+            "subtotal": {
+              "value": "100.00",
+              "confidence": 99
+            },
+            "tax": {
+              "value": "7.00",
+              "confidence": 99
+            },
+            "total": {
+              "value": "107.00",
+              "confidence": 99
+            },
+            "currency": {
+              "value": "USD",
+              "confidence": 99
+            },
+            "purchase_order": {
+              "value": "PO-SYN-100",
+              "confidence": 95
+            },
+            "receipt_reference": {
+              "value": "SYN-RECEIPT-100",
+              "confidence": 95
+            },
+            "line_items": [
+              {
+                "description": {
+                  "value": "Synthetic framing material",
+                  "confidence": 98
+                },
+                "product_code": {
+                  "value": "SYN-001",
+                  "confidence": 98
+                },
+                "quantity": {
+                  "value": "2",
+                  "confidence": 98
+                },
+                "unit_price": {
+                  "value": "50.00",
+                  "confidence": 98
+                },
+                "amount": {
+                  "value": "100.00",
+                  "confidence": 98
+                }
+              }
+            ]
+          }
+        },
+        "existing_fingerprints": []
+      },
+      "valid": true,
+      "case": "canonical_fixed_example_request"
+    },
+    {
+      "name": "analyze_receipt",
+      "arguments": {
+        "contract_version": "ardaro.agent-receipt-intelligence.request.v1",
+        "input": {
+          "kind": "structured",
+          "analysis": {
+            "vendor": {
+              "value": "Synthetic Building Supply",
+              "confidence": 99
+            },
+            "purchase_date": {
+              "value": "2026-08-18",
+              "confidence": 99
+            },
+            "subtotal": {
+              "value": "100.00",
+              "confidence": 99
+            },
+            "tax": {
+              "value": "7.00",
+              "confidence": 99
+            },
+            "total": {
+              "value": "107.00",
+              "confidence": 99
+            },
+            "currency": {
+              "value": "USD",
+              "confidence": 99
+            },
+            "purchase_order": {
+              "value": "PO-SYN-100",
+              "confidence": 95
+            },
+            "receipt_reference": {
+              "value": "SYN-RECEIPT-100",
+              "confidence": 95
+            },
+            "line_items": [
+              {
+                "description": {
+                  "value": "Synthetic framing material",
+                  "confidence": 98
+                },
+                "product_code": {
+                  "value": "SYN-001",
+                  "confidence": 98
+                },
+                "quantity": {
+                  "value": "2",
+                  "confidence": 98
+                },
+                "unit_price": {
+                  "value": "50.00",
+                  "confidence": 98
+                },
+                "amount": {
+                  "value": "100.00",
+                  "confidence": 98
+                }
+              }
+            ]
+          }
+        },
+        "existing_fingerprints": [],
+        "__unexpected": true
+      },
+      "valid": false,
+      "case": "additional_properties_rejected"
+    },
+    {
+      "name": "analyze_receipt",
+      "arguments": {
+        "input": {
+          "kind": "structured",
+          "analysis": {
+            "vendor": {
+              "value": "Synthetic Building Supply",
+              "confidence": 99
+            },
+            "purchase_date": {
+              "value": "2026-08-18",
+              "confidence": 99
+            },
+            "subtotal": {
+              "value": "100.00",
+              "confidence": 99
+            },
+            "tax": {
+              "value": "7.00",
+              "confidence": 99
+            },
+            "total": {
+              "value": "107.00",
+              "confidence": 99
+            },
+            "currency": {
+              "value": "USD",
+              "confidence": 99
+            },
+            "purchase_order": {
+              "value": "PO-SYN-100",
+              "confidence": 95
+            },
+            "receipt_reference": {
+              "value": "SYN-RECEIPT-100",
+              "confidence": 95
+            },
+            "line_items": [
+              {
+                "description": {
+                  "value": "Synthetic framing material",
+                  "confidence": 98
+                },
+                "product_code": {
+                  "value": "SYN-001",
+                  "confidence": 98
+                },
+                "quantity": {
+                  "value": "2",
+                  "confidence": 98
+                },
+                "unit_price": {
+                  "value": "50.00",
+                  "confidence": 98
+                },
+                "amount": {
+                  "value": "100.00",
+                  "confidence": 98
+                }
+              }
+            ]
+          }
+        },
+        "existing_fingerprints": []
+      },
+      "valid": false,
+      "case": "required_field_rejected"
+    },
+    {
+      "name": "analyze_receipt",
+      "arguments": {
+        "contract_version": "ardaro.agent-receipt-intelligence.request.v1",
+        "existing_fingerprints": []
+      },
+      "valid": false,
+      "case": "required_field_rejected"
+    },
+    {
+      "name": "analyze_receipt",
+      "arguments": {
+        "contract_version": "ardaro.agent-receipt-intelligence.request.v1",
+        "input": {
+          "kind": "structured",
+          "analysis": {
+            "vendor": {
+              "value": "Synthetic Building Supply",
+              "confidence": 99
+            },
+            "purchase_date": {
+              "value": "2026-08-18",
+              "confidence": 99
+            },
+            "subtotal": {
+              "value": "100.00",
+              "confidence": 99
+            },
+            "tax": {
+              "value": "7.00",
+              "confidence": 99
+            },
+            "total": {
+              "value": "107.00",
+              "confidence": 99
+            },
+            "currency": {
+              "value": "USD",
+              "confidence": 99
+            },
+            "purchase_order": {
+              "value": "PO-SYN-100",
+              "confidence": 95
+            },
+            "receipt_reference": {
+              "value": "SYN-RECEIPT-100",
+              "confidence": 95
+            },
+            "line_items": [
+              {
+                "description": {
+                  "value": "Synthetic framing material",
+                  "confidence": 98
+                },
+                "product_code": {
+                  "value": "SYN-001",
+                  "confidence": 98
+                },
+                "quantity": {
+                  "value": "2",
+                  "confidence": 98
+                },
+                "unit_price": {
+                  "value": "50.00",
+                  "confidence": 98
+                },
+                "amount": {
+                  "value": "100.00",
+                  "confidence": 98
+                }
+              }
+            ]
+          }
+        }
+      },
+      "valid": false,
+      "case": "required_field_rejected"
+    },
+    {
+      "name": "get_receipt_example",
+      "arguments": {},
+      "valid": true,
+      "case": "canonical_fixed_example_request"
+    },
+    {
+      "name": "get_receipt_example",
+      "arguments": {
+        "__unexpected": true
+      },
+      "valid": false,
+      "case": "additional_properties_rejected"
+    },
+    {
+      "name": "get_receipt_service_status",
+      "arguments": {},
+      "valid": true,
+      "case": "canonical_fixed_example_request"
+    },
+    {
+      "name": "get_receipt_service_status",
+      "arguments": {
+        "__unexpected": true
+      },
+      "valid": false,
+      "case": "additional_properties_rejected"
+    },
+    {
+      "name": "match_invoice",
+      "arguments": {
+        "contract_version": "ardaro.agent-invoice-matching.request.v1",
+        "invoice": {
+          "reference": "SYN-INV-001",
+          "currency": "USD",
+          "supplier_id": "SYN-SUPPLIER-001",
+          "purchase_order_reference": "SYN-PO-001",
+          "subtotal": "20.00",
+          "tax": "1.40",
+          "total": "21.40",
+          "line_items": [
+            {
+              "line_id": "INV-1",
+              "po_line_id": "PO-1",
+              "product_code": "SYN-BOARD",
+              "description": "Synthetic board",
+              "unit": "each",
+              "quantity": "2",
+              "unit_price": "10.00",
+              "amount": "20.00"
+            }
+          ]
+        },
+        "purchase_order": {
+          "reference": "SYN-PO-001",
+          "currency": "USD",
+          "supplier_id": "SYN-SUPPLIER-001",
+          "line_items": [
+            {
+              "line_id": "PO-1",
+              "product_code": "SYN-BOARD",
+              "description": "Synthetic board",
+              "unit": "each",
+              "quantity": "5",
+              "unit_price": "10.00",
+              "amount": "50.00"
+            }
+          ]
+        }
+      },
+      "valid": true,
+      "case": "canonical_fixed_example_request"
+    },
+    {
+      "name": "match_invoice",
+      "arguments": {
+        "contract_version": "ardaro.agent-invoice-matching.request.v1",
+        "invoice": {
+          "reference": "SYN-INV-001",
+          "currency": "USD",
+          "supplier_id": "SYN-SUPPLIER-001",
+          "purchase_order_reference": "SYN-PO-001",
+          "subtotal": "20.00",
+          "tax": "1.40",
+          "total": "21.40",
+          "line_items": [
+            {
+              "line_id": "INV-1",
+              "po_line_id": "PO-1",
+              "product_code": "SYN-BOARD",
+              "description": "Synthetic board",
+              "unit": "each",
+              "quantity": "2",
+              "unit_price": "10.00",
+              "amount": "20.00"
+            }
+          ]
+        },
+        "purchase_order": {
+          "reference": "SYN-PO-001",
+          "currency": "USD",
+          "supplier_id": "SYN-SUPPLIER-001",
+          "line_items": [
+            {
+              "line_id": "PO-1",
+              "product_code": "SYN-BOARD",
+              "description": "Synthetic board",
+              "unit": "each",
+              "quantity": "5",
+              "unit_price": "10.00",
+              "amount": "50.00"
+            }
+          ]
+        },
+        "__unexpected": true
+      },
+      "valid": false,
+      "case": "additional_properties_rejected"
+    },
+    {
+      "name": "match_invoice",
+      "arguments": {
+        "invoice": {
+          "reference": "SYN-INV-001",
+          "currency": "USD",
+          "supplier_id": "SYN-SUPPLIER-001",
+          "purchase_order_reference": "SYN-PO-001",
+          "subtotal": "20.00",
+          "tax": "1.40",
+          "total": "21.40",
+          "line_items": [
+            {
+              "line_id": "INV-1",
+              "po_line_id": "PO-1",
+              "product_code": "SYN-BOARD",
+              "description": "Synthetic board",
+              "unit": "each",
+              "quantity": "2",
+              "unit_price": "10.00",
+              "amount": "20.00"
+            }
+          ]
+        },
+        "purchase_order": {
+          "reference": "SYN-PO-001",
+          "currency": "USD",
+          "supplier_id": "SYN-SUPPLIER-001",
+          "line_items": [
+            {
+              "line_id": "PO-1",
+              "product_code": "SYN-BOARD",
+              "description": "Synthetic board",
+              "unit": "each",
+              "quantity": "5",
+              "unit_price": "10.00",
+              "amount": "50.00"
+            }
+          ]
+        }
+      },
+      "valid": false,
+      "case": "required_field_rejected"
+    },
+    {
+      "name": "match_invoice",
+      "arguments": {
+        "contract_version": "ardaro.agent-invoice-matching.request.v1",
+        "purchase_order": {
+          "reference": "SYN-PO-001",
+          "currency": "USD",
+          "supplier_id": "SYN-SUPPLIER-001",
+          "line_items": [
+            {
+              "line_id": "PO-1",
+              "product_code": "SYN-BOARD",
+              "description": "Synthetic board",
+              "unit": "each",
+              "quantity": "5",
+              "unit_price": "10.00",
+              "amount": "50.00"
+            }
+          ]
+        }
+      },
+      "valid": false,
+      "case": "required_field_rejected"
+    },
+    {
+      "name": "match_invoice",
+      "arguments": {
+        "contract_version": "ardaro.agent-invoice-matching.request.v1",
+        "invoice": {
+          "reference": "SYN-INV-001",
+          "currency": "USD",
+          "supplier_id": "SYN-SUPPLIER-001",
+          "purchase_order_reference": "SYN-PO-001",
+          "subtotal": "20.00",
+          "tax": "1.40",
+          "total": "21.40",
+          "line_items": [
+            {
+              "line_id": "INV-1",
+              "po_line_id": "PO-1",
+              "product_code": "SYN-BOARD",
+              "description": "Synthetic board",
+              "unit": "each",
+              "quantity": "2",
+              "unit_price": "10.00",
+              "amount": "20.00"
+            }
+          ]
+        }
+      },
+      "valid": false,
+      "case": "required_field_rejected"
+    },
+    {
+      "name": "get_invoice_matching_example",
+      "arguments": {},
+      "valid": true,
+      "case": "canonical_fixed_example_request"
+    },
+    {
+      "name": "get_invoice_matching_example",
+      "arguments": {
+        "__unexpected": true
+      },
+      "valid": false,
+      "case": "additional_properties_rejected"
+    },
+    {
+      "name": "get_invoice_matching_service_status",
+      "arguments": {},
+      "valid": true,
+      "case": "canonical_fixed_example_request"
+    },
+    {
+      "name": "get_invoice_matching_service_status",
+      "arguments": {
+        "__unexpected": true
+      },
+      "valid": false,
+      "case": "additional_properties_rejected"
+    },
+    {
+      "name": "compress_agent_context",
+      "arguments": {
+        "raw_conversation_history": "system: Preserve all conditions and require review.\n\n\nuser: Keep the synthetic invoice total unchanged."
+      },
+      "valid": true,
+      "case": "canonical_fixed_example_request"
+    },
+    {
+      "name": "compress_agent_context",
+      "arguments": {
+        "raw_conversation_history": "system: Preserve all conditions and require review.\n\n\nuser: Keep the synthetic invoice total unchanged.",
+        "__unexpected": true
+      },
+      "valid": false,
+      "case": "additional_properties_rejected"
+    },
+    {
+      "name": "compress_agent_context",
+      "arguments": {},
+      "valid": false,
+      "case": "required_field_rejected"
+    },
+    {
+      "name": "get_compress_agent_context_service_status",
+      "arguments": {},
+      "valid": true,
+      "case": "canonical_fixed_example_request"
+    },
+    {
+      "name": "get_compress_agent_context_service_status",
+      "arguments": {
+        "__unexpected": true
+      },
+      "valid": false,
+      "case": "additional_properties_rejected"
+    },
+    {
+      "name": "get_compress_agent_context_example",
+      "arguments": {},
+      "valid": true,
+      "case": "canonical_fixed_example_request"
+    },
+    {
+      "name": "get_compress_agent_context_example",
+      "arguments": {
+        "__unexpected": true
+      },
+      "valid": false,
+      "case": "additional_properties_rejected"
+    },
+    {
+      "name": "route_model_intent",
+      "arguments": {
+        "intent_payload": "Review the total on a synthetic invoice; do not execute a payment."
+      },
+      "valid": true,
+      "case": "canonical_fixed_example_request"
+    },
+    {
+      "name": "route_model_intent",
+      "arguments": {
+        "intent_payload": "Review the total on a synthetic invoice; do not execute a payment.",
+        "__unexpected": true
+      },
+      "valid": false,
+      "case": "additional_properties_rejected"
+    },
+    {
+      "name": "route_model_intent",
+      "arguments": {},
+      "valid": false,
+      "case": "required_field_rejected"
+    },
+    {
+      "name": "get_route_model_intent_service_status",
+      "arguments": {},
+      "valid": true,
+      "case": "canonical_fixed_example_request"
+    },
+    {
+      "name": "get_route_model_intent_service_status",
+      "arguments": {
+        "__unexpected": true
+      },
+      "valid": false,
+      "case": "additional_properties_rejected"
+    },
+    {
+      "name": "get_route_model_intent_example",
+      "arguments": {},
+      "valid": true,
+      "case": "canonical_fixed_example_request"
+    },
+    {
+      "name": "get_route_model_intent_example",
+      "arguments": {
+        "__unexpected": true
+      },
+      "valid": false,
+      "case": "additional_properties_rejected"
+    },
+    {
+      "name": "authorize_agent_spend",
+      "arguments": {
+        "proposed_cost": "0.30",
+        "currency": "USD",
+        "policy": {
+          "currency": "USD",
+          "max_per_transaction": "1.00",
+          "max_per_hour": "5.00",
+          "max_checks_per_minute": 20
+        },
+        "history": {
+          "currency": "USD",
+          "committed_last_hour": "0.10",
+          "pending_reserved": "0.20",
+          "checks_last_minute": 2
+        }
+      },
+      "valid": true,
+      "case": "canonical_fixed_example_request"
+    },
+    {
+      "name": "authorize_agent_spend",
+      "arguments": {
+        "proposed_cost": "0.30",
+        "currency": "USD",
+        "policy": {
+          "currency": "USD",
+          "max_per_transaction": "1.00",
+          "max_per_hour": "5.00",
+          "max_checks_per_minute": 20
+        },
+        "history": {
+          "currency": "USD",
+          "committed_last_hour": "0.10",
+          "pending_reserved": "0.20",
+          "checks_last_minute": 2
+        },
+        "__unexpected": true
+      },
+      "valid": false,
+      "case": "additional_properties_rejected"
+    },
+    {
+      "name": "authorize_agent_spend",
+      "arguments": {
+        "currency": "USD",
+        "policy": {
+          "currency": "USD",
+          "max_per_transaction": "1.00",
+          "max_per_hour": "5.00",
+          "max_checks_per_minute": 20
+        },
+        "history": {
+          "currency": "USD",
+          "committed_last_hour": "0.10",
+          "pending_reserved": "0.20",
+          "checks_last_minute": 2
+        }
+      },
+      "valid": false,
+      "case": "required_field_rejected"
+    },
+    {
+      "name": "authorize_agent_spend",
+      "arguments": {
+        "proposed_cost": "0.30",
+        "policy": {
+          "currency": "USD",
+          "max_per_transaction": "1.00",
+          "max_per_hour": "5.00",
+          "max_checks_per_minute": 20
+        },
+        "history": {
+          "currency": "USD",
+          "committed_last_hour": "0.10",
+          "pending_reserved": "0.20",
+          "checks_last_minute": 2
+        }
+      },
+      "valid": false,
+      "case": "required_field_rejected"
+    },
+    {
+      "name": "authorize_agent_spend",
+      "arguments": {
+        "proposed_cost": "0.30",
+        "currency": "USD",
+        "history": {
+          "currency": "USD",
+          "committed_last_hour": "0.10",
+          "pending_reserved": "0.20",
+          "checks_last_minute": 2
+        }
+      },
+      "valid": false,
+      "case": "required_field_rejected"
+    },
+    {
+      "name": "authorize_agent_spend",
+      "arguments": {
+        "proposed_cost": "0.30",
+        "currency": "USD",
+        "policy": {
+          "currency": "USD",
+          "max_per_transaction": "1.00",
+          "max_per_hour": "5.00",
+          "max_checks_per_minute": 20
+        }
+      },
+      "valid": false,
+      "case": "required_field_rejected"
+    },
+    {
+      "name": "get_authorize_agent_spend_service_status",
+      "arguments": {},
+      "valid": true,
+      "case": "canonical_fixed_example_request"
+    },
+    {
+      "name": "get_authorize_agent_spend_service_status",
+      "arguments": {
+        "__unexpected": true
+      },
+      "valid": false,
+      "case": "additional_properties_rejected"
+    },
+    {
+      "name": "get_authorize_agent_spend_example",
+      "arguments": {},
+      "valid": true,
+      "case": "canonical_fixed_example_request"
+    },
+    {
+      "name": "get_authorize_agent_spend_example",
+      "arguments": {
+        "__unexpected": true
+      },
+      "valid": false,
+      "case": "additional_properties_rejected"
+    },
+    {
+      "name": "reconcile_api_ledger",
+      "arguments": {
+        "billing_records": [
+          {
+            "request_id": "synthetic-api-001",
+            "amount": "0.30",
+            "currency": "USD"
+          }
+        ],
+        "usage_records": [
+          {
+            "request_id": "synthetic-api-001",
+            "amount": "0.30",
+            "currency": "USD"
+          }
+        ]
+      },
+      "valid": true,
+      "case": "canonical_fixed_example_request"
+    },
+    {
+      "name": "reconcile_api_ledger",
+      "arguments": {
+        "billing_records": [
+          {
+            "request_id": "synthetic-api-001",
+            "amount": "0.30",
+            "currency": "USD"
+          }
+        ],
+        "usage_records": [
+          {
+            "request_id": "synthetic-api-001",
+            "amount": "0.30",
+            "currency": "USD"
+          }
+        ],
+        "__unexpected": true
+      },
+      "valid": false,
+      "case": "additional_properties_rejected"
+    },
+    {
+      "name": "reconcile_api_ledger",
+      "arguments": {
+        "usage_records": [
+          {
+            "request_id": "synthetic-api-001",
+            "amount": "0.30",
+            "currency": "USD"
+          }
+        ]
+      },
+      "valid": false,
+      "case": "required_field_rejected"
+    },
+    {
+      "name": "reconcile_api_ledger",
+      "arguments": {
+        "billing_records": [
+          {
+            "request_id": "synthetic-api-001",
+            "amount": "0.30",
+            "currency": "USD"
+          }
+        ]
+      },
+      "valid": false,
+      "case": "required_field_rejected"
+    },
+    {
+      "name": "get_reconcile_api_ledger_service_status",
+      "arguments": {},
+      "valid": true,
+      "case": "canonical_fixed_example_request"
+    },
+    {
+      "name": "get_reconcile_api_ledger_service_status",
+      "arguments": {
+        "__unexpected": true
+      },
+      "valid": false,
+      "case": "additional_properties_rejected"
+    },
+    {
+      "name": "get_reconcile_api_ledger_example",
+      "arguments": {},
+      "valid": true,
+      "case": "canonical_fixed_example_request"
+    },
+    {
+      "name": "get_reconcile_api_ledger_example",
+      "arguments": {
+        "__unexpected": true
+      },
+      "valid": false,
+      "case": "additional_properties_rejected"
+    },
+    {
+      "name": "match_invoice",
+      "arguments": {
+        "contract_version": "ardaro.agent-invoice-matching.request.v1",
+        "invoice": {
+          "reference": "SYN-INV-001",
+          "currency": "USD",
+          "supplier_id": "SYN-SUPPLIER-001",
+          "purchase_order_reference": "SYN-PO-001",
+          "subtotal": "20.00",
+          "tax": "1.40",
+          "total": "21.40",
+          "line_items": [
+            {
+              "line_id": "INV-1\n",
+              "po_line_id": "PO-1",
+              "product_code": "SYN-BOARD",
+              "description": "Synthetic board",
+              "unit": "each",
+              "quantity": "2",
+              "unit_price": "10.00",
+              "amount": "20.00"
+            }
+          ]
+        },
+        "purchase_order": {
+          "reference": "SYN-PO-001",
+          "currency": "USD",
+          "supplier_id": "SYN-SUPPLIER-001",
+          "line_items": [
+            {
+              "line_id": "PO-1",
+              "product_code": "SYN-BOARD",
+              "description": "Synthetic board",
+              "unit": "each",
+              "quantity": "5",
+              "unit_price": "10.00",
+              "amount": "50.00"
+            }
+          ]
+        }
+      },
+      "valid": false,
+      "case": "strict_end_anchor_newline"
+    },
+    {
+      "name": "reconcile_api_ledger",
+      "arguments": {
+        "billing_records": [
+          {
+            "request_id": "synthetic-api-001\n",
+            "amount": "0.30",
+            "currency": "USD"
+          }
+        ],
+        "usage_records": [
+          {
+            "request_id": "synthetic-api-001",
+            "amount": "0.30",
+            "currency": "USD"
+          }
+        ]
+      },
+      "valid": false,
+      "case": "strict_end_anchor_newline"
+    },
+    {
+      "name": "analyze_receipt",
+      "arguments": {
+        "contract_version": "ardaro.agent-receipt-intelligence.request.v1",
+        "input": {
+          "kind": "text",
+          "text": "synthetic",
+          "analysis": {}
+        },
+        "existing_fingerprints": []
+      },
+      "valid": false,
+      "case": "receipt_union_and_closed_shape"
+    },
+    {
+      "name": "authorize_agent_spend",
+      "arguments": {
+        "proposed_cost": 0.3,
+        "currency": "USD",
+        "policy": {
+          "currency": "USD",
+          "max_per_transaction": "1.00",
+          "max_per_hour": "5.00",
+          "max_checks_per_minute": 20
+        },
+        "history": {
+          "currency": "USD",
+          "committed_last_hour": "0.10",
+          "pending_reserved": "0.20",
+          "checks_last_minute": 2
+        }
+      },
+      "valid": false,
+      "case": "decimal_string_not_coerced"
+    }
+  ]
+}
