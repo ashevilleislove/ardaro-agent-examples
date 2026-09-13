@@ -1,5 +1,23 @@
 # Verification notes
 
+## Utility evidence and framework adapters — September 13, 2026 UTC
+
+Three framework-specific examples were executed against `https://agents.getardaro.com/mcp`, reporting server `ardaro-agent-services` version **1.3.0**. Each discovered the 18-tool catalog and invoked the two fixed document examples. Each run used empty tool arguments and performed no model, wallet, or paid tool operation.
+
+| Adapter | Pinned versions | Live result and scope |
+| --- | --- | --- |
+| [LangChain MCPAdapter](docs/frameworks/langchain.md) | Python 3.11.0; LangChain 1.4.0; FastMCP 4.0.3; MCP 2.2.0 | [PASS](evidence/frameworks/langchain.json): both fixed examples and canonical result identities. A LangGraph execution was not run. |
+| [Vercel AI SDK MCP](docs/frameworks/vercel.md) | Node 24.14.0; `@ai-sdk/mcp` 2.0.49; Zod 4.1.8 | [PASS](evidence/frameworks/vercel.json): explicit free-tool schemas; both examples and canonical result identities. |
+| [CrewAI custom free-only adapter](docs/frameworks/crewai.md) | Python 3.11.0; CrewAI / crewai-tools 1.15.21; MCPAdapt 0.1.19; MCP 1.28.1 | [PASS](evidence/frameworks/crewai.json): two mapped CrewAI tools invoked directly. A model-driven Crew was not run. |
+
+The stock CrewAI `MCPServerAdapter` failed during full-catalog schema conversion because its Rust regex validator rejects lookahead. The working example uses MCPAdapt's custom `ToolAdapter` interface to select the two fixed tools before conversion. Thirteen offline boundary tests cover tool selection, argument/error handling, payment metadata rejection, and the request limit. LangChain's FastMCP validator also warns that it skips unsupported lookahead patterns; the passing run is not proof of full client-side schema conformance.
+
+Existing repository checks were rerun for this publication: `npm ci --ignore-scripts` succeeded, **33 offline tests passed**, and both `npm start` and `npm run demo:invoice` passed their live discovery, synthetic fixture, and unsigned payment-challenge checks. Neither demo submitted payment. Python locks capture the tested Python 3.11 environments; other platforms and package versions need their own checks.
+
+Separately, [four owner-operated synthetic utility REST tests](evidence/owner-rest-tests-20260913.json) passed exact response and Base transfer checks. Total **0.55 USDC** comprises the earlier 0.10 budget test plus the later three tests totaling 0.45. The evidence links public transfer receipts and distinguishes them from publisher-recorded response validation. Paid utility MCP execution, customer adoption, and product performance benchmarks remain outside these tests.
+
+The prior receipt and invoice verification records below are preserved as historical checks.
+
 ## Invoice quickstart update — September 12, 2026 (America/New_York)
 
 - Node.js 24.14.0 and npm 11.9.0; MCP SDK remains pinned to 1.30.0. No new dependency was added.

@@ -1,0 +1,129 @@
+{
+  "status": "PASS",
+  "started_at": "2026-09-13T02:27:34.187746+00:00",
+  "endpoint": "https://agents.getardaro.com/mcp",
+  "framework": "CrewAI via explicit free-only MCPAdapt ToolAdapter",
+  "mode": "allowlisted",
+  "python": "3.11.0",
+  "versions": {
+    "crewai": "1.15.21",
+    "crewai-tools": "1.15.21",
+    "mcp": "1.28.1",
+    "mcpadapt": "0.1.19",
+    "httpx": "0.28.1",
+    "pydantic": "2.12.5"
+  },
+  "requests": [
+    {
+      "http_method": "POST",
+      "url": "https://agents.getardaro.com/mcp",
+      "rpc_method": "initialize",
+      "params": {
+        "protocolVersion": "2025-11-25",
+        "capabilities": {},
+        "clientInfo": {
+          "name": "mcp",
+          "version": "0.1.0"
+        }
+      },
+      "http_status": 200
+    },
+    {
+      "http_method": "POST",
+      "url": "https://agents.getardaro.com/mcp",
+      "rpc_method": "notifications/initialized",
+      "params": {},
+      "http_status": 202
+    },
+    {
+      "http_method": "POST",
+      "url": "https://agents.getardaro.com/mcp",
+      "rpc_method": "tools/list",
+      "params": {},
+      "http_status": 200
+    },
+    {
+      "http_method": "POST",
+      "url": "https://agents.getardaro.com/mcp",
+      "rpc_method": "tools/list",
+      "params": {},
+      "http_status": 200
+    },
+    {
+      "http_method": "POST",
+      "url": "https://agents.getardaro.com/mcp",
+      "rpc_method": "tools/call",
+      "params": {
+        "name": "get_receipt_example",
+        "arguments": {}
+      },
+      "http_status": 200
+    },
+    {
+      "http_method": "POST",
+      "url": "https://agents.getardaro.com/mcp",
+      "rpc_method": "tools/call",
+      "params": {
+        "name": "get_invoice_matching_example",
+        "arguments": {}
+      },
+      "http_status": 200
+    }
+  ],
+  "results": {
+    "get_receipt_example": {
+      "status": "PASS",
+      "arguments": {},
+      "adapter_output_type": "str",
+      "synthetic_only": true,
+      "fixture_file": "fixtures/get_receipt_example.result.json",
+      "sha256": "b24a784ba53fd0094bfb2b088ed233a9f3f3ac4dfdff99c0734b7a8eaabbad59"
+    },
+    "get_invoice_matching_example": {
+      "status": "PASS",
+      "arguments": {},
+      "adapter_output_type": "str",
+      "synthetic_only": true,
+      "fixture_file": "fixtures/get_invoice_matching_example.result.json",
+      "sha256": "c9210357412af6a4159e288ae16c06ea7c4f126f6300220bf0b818aca3d324a6"
+    }
+  },
+  "spend_usdc": "0.00",
+  "model_calls": 0,
+  "wallet_calls": 0,
+  "paid_tool_calls": 0,
+  "customer_input": false,
+  "request_budget": 8,
+  "scope": "Live discovery and direct execution of the adapter-mapped free fixed fixtures; no Crew/LLM execution or paid MCP execution.",
+  "server_info": {
+    "name": "ardaro-agent-services",
+    "version": "1.3.0"
+  },
+  "protocol_version": "2025-11-25",
+  "raw_discovered_tool_names": [
+    "analyze_receipt",
+    "authorize_agent_spend",
+    "compress_agent_context",
+    "get_authorize_agent_spend_example",
+    "get_authorize_agent_spend_service_status",
+    "get_compress_agent_context_example",
+    "get_compress_agent_context_service_status",
+    "get_invoice_matching_example",
+    "get_invoice_matching_service_status",
+    "get_receipt_example",
+    "get_receipt_service_status",
+    "get_reconcile_api_ledger_example",
+    "get_reconcile_api_ledger_service_status",
+    "get_route_model_intent_example",
+    "get_route_model_intent_service_status",
+    "match_invoice",
+    "reconcile_api_ledger",
+    "route_model_intent"
+  ],
+  "discovered_tool_names": [
+    "get_invoice_matching_example",
+    "get_receipt_example"
+  ],
+  "elapsed_seconds": 0.891,
+  "finished_at": "2026-09-13T02:27:39.969012+00:00"
+}
