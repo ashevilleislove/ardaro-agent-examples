@@ -1,0 +1,53 @@
+{
+  "status": "PASS_WITH_EXPLICIT_CREWAI_SCOPE",
+  "verified_date_utc": "2026-09-13",
+  "endpoint": "https://agents.getardaro.com/mcp",
+  "server_version": "1.3.0",
+  "frameworks": {
+    "langchain": {
+      "status": "PASS",
+      "report": "langchain.json"
+    },
+    "vercel": {
+      "status": "PASS",
+      "report": "vercel.json"
+    },
+    "crewai": {
+      "status": "PASS_FREE_ONLY_CUSTOM_TOOL_ADAPTER",
+      "report": "crewai.json",
+      "stock_adapter": "BLOCKED_BY_RUST_REGEX_LOOKAHEAD",
+      "stock_report": "crewai-stock-blocker.json"
+    }
+  },
+  "cross_framework_checks": {
+    "get_receipt_example": {
+      "all_three_fixture_bodies_identical": true,
+      "result_identity_valid": true,
+      "synthetic_only": true,
+      "fixture": "fixtures/get_receipt_example.result.json",
+      "fixture_sha256": "b24a784ba53fd0094bfb2b088ed233a9f3f3ac4dfdff99c0734b7a8eaabbad59"
+    },
+    "get_invoice_matching_example": {
+      "all_three_fixture_bodies_identical": true,
+      "result_identity_valid": true,
+      "synthetic_only": true,
+      "fixture": "fixtures/get_invoice_matching_example.result.json",
+      "fixture_sha256": "c9210357412af6a4159e288ae16c06ea7c4f126f6300220bf0b818aca3d324a6"
+    }
+  },
+  "model_calls": 0,
+  "paid_tool_calls": 0,
+  "wallet_operations": 0,
+  "limitations": [
+    "Direct adapter calls only; graph and model-driven Crew execution not tested.",
+    "Stock CrewAI full-catalog adapter is blocked by unsupported lookahead regex.",
+    "LangChain FastMCP skips some unsupported lookahead checks; the successful run is not full client-side schema conformance.",
+    "Paid utility REST evidence is separate from these free MCP runs."
+  ],
+  "reports_sha256": {
+    "langchain.json": "f9a72b9e3ebaf9f1d27b55c75fa588e5aff50a097dd78a0dcf4082436929465d",
+    "vercel.json": "8b55d82cb165a368c9e9922124a620a60168598b82ccb75c82b7d830f23b0c3b",
+    "crewai.json": "ad81fa29c69238107e00c861ee35a85439d3bd3bf5282a9916da434d2f44ea95",
+    "crewai-stock-blocker.json": "30c0e5f7f2382e60ab0fc5e284ee80d5e2800c316f4acfa52e81d1527dd75f0e"
+  }
+}

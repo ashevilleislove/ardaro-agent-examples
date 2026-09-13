@@ -1,0 +1,403 @@
+{
+  "example_version": "ardaro.receipt-intelligence.example.v1",
+  "synthetic_only": true,
+  "paid_processing_performed": false,
+  "input_description": "One generated supplier receipt with one line item and internally consistent totals.",
+  "request": {
+    "contract_version": "ardaro.agent-receipt-intelligence.request.v1",
+    "input": {
+      "kind": "structured",
+      "analysis": {
+        "vendor": {
+          "value": "Synthetic Building Supply",
+          "confidence": 99
+        },
+        "purchase_date": {
+          "value": "2026-08-18",
+          "confidence": 99
+        },
+        "subtotal": {
+          "value": "100.00",
+          "confidence": 99
+        },
+        "tax": {
+          "value": "7.00",
+          "confidence": 99
+        },
+        "total": {
+          "value": "107.00",
+          "confidence": 99
+        },
+        "currency": {
+          "value": "USD",
+          "confidence": 99
+        },
+        "purchase_order": {
+          "value": "PO-SYN-100",
+          "confidence": 95
+        },
+        "receipt_reference": {
+          "value": "SYN-RECEIPT-100",
+          "confidence": 95
+        },
+        "line_items": [
+          {
+            "description": {
+              "value": "Synthetic framing material",
+              "confidence": 98
+            },
+            "product_code": {
+              "value": "SYN-001",
+              "confidence": 98
+            },
+            "quantity": {
+              "value": "2",
+              "confidence": 98
+            },
+            "unit_price": {
+              "value": "50.00",
+              "confidence": 98
+            },
+            "amount": {
+              "value": "100.00",
+              "confidence": 98
+            }
+          }
+        ]
+      }
+    },
+    "existing_fingerprints": []
+  },
+  "expected_response": {
+    "contract_version": "ardaro.agent-receipt-intelligence.response.v1",
+    "service": "ardaro.receipt_intelligence",
+    "version": "1.0.0",
+    "status": "review_required",
+    "engine": {
+      "mode": "deterministic",
+      "version": "ardaro-receipt-scanner-deterministic-1.0.0",
+      "input_adapter": "provider_neutral",
+      "model_calls": 0
+    },
+    "receipt": {
+      "vendor": {
+        "value": "Synthetic Building Supply",
+        "confidence": {
+          "score": 0.99,
+          "level": "high"
+        },
+        "source": "provider_neutral"
+      },
+      "purchase_date": {
+        "value": "2026-08-18",
+        "confidence": {
+          "score": 0.99,
+          "level": "high"
+        },
+        "source": "provider_neutral"
+      },
+      "totals": {
+        "subtotal": {
+          "value": "100.00",
+          "confidence": {
+            "score": 0.99,
+            "level": "high"
+          },
+          "source": "provider_neutral"
+        },
+        "tax": {
+          "value": "7.00",
+          "confidence": {
+            "score": 0.99,
+            "level": "high"
+          },
+          "source": "provider_neutral"
+        },
+        "total": {
+          "value": "107.00",
+          "confidence": {
+            "score": 0.99,
+            "level": "high"
+          },
+          "source": "provider_neutral"
+        },
+        "currency": {
+          "value": "USD",
+          "confidence": {
+            "score": 0.99,
+            "level": "high"
+          },
+          "source": "provider_neutral"
+        }
+      },
+      "line_items": [
+        {
+          "description": {
+            "value": "Synthetic framing material",
+            "confidence": {
+              "score": 0.98,
+              "level": "high"
+            },
+            "source": "provider_neutral"
+          },
+          "product_code": {
+            "value": "SYN-001",
+            "confidence": {
+              "score": 0.98,
+              "level": "high"
+            },
+            "source": "provider_neutral"
+          },
+          "quantity": {
+            "value": "2",
+            "confidence": {
+              "score": 0.98,
+              "level": "high"
+            },
+            "source": "provider_neutral"
+          },
+          "unit_price": {
+            "value": "50.00",
+            "confidence": {
+              "score": 0.98,
+              "level": "high"
+            },
+            "source": "provider_neutral"
+          },
+          "amount": {
+            "value": "100.00",
+            "confidence": {
+              "score": 0.98,
+              "level": "high"
+            },
+            "source": "provider_neutral"
+          }
+        }
+      ],
+      "purchase_order": {
+        "value": "PO-SYN-100",
+        "confidence": {
+          "score": 0.95,
+          "level": "high"
+        },
+        "source": "provider_neutral"
+      },
+      "receipt_reference": {
+        "value": "SYN-RECEIPT-100",
+        "confidence": {
+          "score": 0.95,
+          "level": "high"
+        },
+        "source": "provider_neutral"
+      }
+    },
+    "confidence": {
+      "field_count": 13,
+      "average_score": 0.98,
+      "minimum_score": 0.95,
+      "levels": {
+        "high": 13,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    "duplicate_check": {
+      "candidate_fingerprint": "622719e626053f01cb1c010229751945b5d99417af9791f40409a7315cac92db",
+      "fingerprint_basis": [
+        "vendor",
+        "purchase_date",
+        "total",
+        "currency",
+        "receipt_reference",
+        "purchase_order"
+      ],
+      "likely_duplicate": false,
+      "decision": "no_exact_match"
+    },
+    "duplicate_fingerprint": "622719e626053f01cb1c010229751945b5d99417af9791f40409a7315cac92db",
+    "arithmetic_verified": true,
+    "arithmetic_consistency": "verified",
+    "warnings": [
+      {
+        "code": "review_required",
+        "severity": "info",
+        "field": "",
+        "message": "Review and confirm the extracted receipt before creating an expense."
+      }
+    ],
+    "warning_groups": {
+      "arithmetic": [],
+      "duplicate": []
+    },
+    "identities": {
+      "request_identity": "req_e2ee49f08c280d83a89f50d5b757f2afa564db61cca2219229e9fab6755b3c81",
+      "document_fingerprint": "622719e626053f01cb1c010229751945b5d99417af9791f40409a7315cac92db",
+      "analysis_result_identity": "res_cce99d77d63b31f1401920953dcc1c2d52e883c0ed18b5b3cd5cc469eb1a98a7"
+    },
+    "result": {
+      "extracted_facts": {
+        "vendor": {
+          "value": "Synthetic Building Supply",
+          "confidence": {
+            "score": 0.99,
+            "level": "high"
+          },
+          "source": "provider_neutral"
+        },
+        "purchase_date": {
+          "value": "2026-08-18",
+          "confidence": {
+            "score": 0.99,
+            "level": "high"
+          },
+          "source": "provider_neutral"
+        },
+        "purchase_order": {
+          "value": "PO-SYN-100",
+          "confidence": {
+            "score": 0.95,
+            "level": "high"
+          },
+          "source": "provider_neutral"
+        },
+        "receipt_reference": {
+          "value": "SYN-RECEIPT-100",
+          "confidence": {
+            "score": 0.95,
+            "level": "high"
+          },
+          "source": "provider_neutral"
+        },
+        "totals.subtotal": {
+          "value": "100.00",
+          "confidence": {
+            "score": 0.99,
+            "level": "high"
+          },
+          "source": "provider_neutral"
+        },
+        "totals.tax": {
+          "value": "7.00",
+          "confidence": {
+            "score": 0.99,
+            "level": "high"
+          },
+          "source": "provider_neutral"
+        },
+        "totals.total": {
+          "value": "107.00",
+          "confidence": {
+            "score": 0.99,
+            "level": "high"
+          },
+          "source": "provider_neutral"
+        },
+        "totals.currency": {
+          "value": "USD",
+          "confidence": {
+            "score": 0.99,
+            "level": "high"
+          },
+          "source": "provider_neutral"
+        },
+        "line_items": [
+          {
+            "description": {
+              "value": "Synthetic framing material",
+              "confidence": {
+                "score": 0.98,
+                "level": "high"
+              },
+              "source": "provider_neutral"
+            },
+            "product_code": {
+              "value": "SYN-001",
+              "confidence": {
+                "score": 0.98,
+                "level": "high"
+              },
+              "source": "provider_neutral"
+            },
+            "quantity": {
+              "value": "2",
+              "confidence": {
+                "score": 0.98,
+                "level": "high"
+              },
+              "source": "provider_neutral"
+            },
+            "unit_price": {
+              "value": "50.00",
+              "confidence": {
+                "score": 0.98,
+                "level": "high"
+              },
+              "source": "provider_neutral"
+            },
+            "amount": {
+              "value": "100.00",
+              "confidence": {
+                "score": 0.98,
+                "level": "high"
+              },
+              "source": "provider_neutral"
+            }
+          }
+        ]
+      },
+      "inferred_suggestions": [],
+      "unavailable_fields": [],
+      "validation": {
+        "arithmetic_consistency": "verified",
+        "arithmetic_verified": true,
+        "duplicate_decision": "no_exact_match",
+        "human_review_required": true
+      },
+      "provenance": {
+        "engine": {
+          "mode": "deterministic",
+          "version": "ardaro-receipt-scanner-deterministic-1.0.0",
+          "input_adapter": "provider_neutral",
+          "model_calls": 0
+        },
+        "field_sources": {
+          "vendor": "provider_neutral",
+          "purchase_date": "provider_neutral",
+          "purchase_order": "provider_neutral",
+          "receipt_reference": "provider_neutral",
+          "totals.subtotal": "provider_neutral",
+          "totals.tax": "provider_neutral",
+          "totals.total": "provider_neutral",
+          "totals.currency": "provider_neutral"
+        },
+        "caller_supplied_input_kind": "structured",
+        "model_calls": 0
+      }
+    },
+    "metering": {
+      "metering_key": "receipt_intelligence.analysis.v1",
+      "units": 1,
+      "request_bytes": 815,
+      "input_kind": "structured"
+    },
+    "policy": {
+      "stateless": true,
+      "deterministic": true,
+      "tenant_agnostic": true,
+      "human_review_required": true,
+      "financial_posting_supported": false,
+      "financial_posting_performed": false,
+      "raw_input_retained": false,
+      "sensitive_values_retained": false
+    }
+  },
+  "limits": {
+    "max_request_bytes": 262144,
+    "max_text_characters": 20000,
+    "max_pages": 1,
+    "max_line_items": 100,
+    "max_existing_fingerprints": 10000,
+    "normal_latency_target_ms": 2000,
+    "request_timeout_ms": 15000
+  }
+}

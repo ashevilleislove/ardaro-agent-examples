@@ -11,3 +11,9 @@ Thumbs.db
 *.pem
 *.key
 wallet*.json
+.venv/
+__pycache__/
+execution-report.json
+free-results.json
+examples/frameworks/crewai/verification*.json
+examples/frameworks/crewai/get_*.result.json
